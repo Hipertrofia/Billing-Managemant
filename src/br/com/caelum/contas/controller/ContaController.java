@@ -26,6 +26,14 @@ public class ContaController {
 		dao.adiciona(conta);
 		return "conta-adicionada";
 	}
+	
+	@requestMapping("/pagaConta")
+	public String paga(Conta conta) {
+		ContaDAO dao = new ContaDAO;
+		dao.paga(conta.getId());
+		
+		return "redirect:listaContas";
+	}
 
 	@RequestMapping(value = "/form")
 	public String form() {
