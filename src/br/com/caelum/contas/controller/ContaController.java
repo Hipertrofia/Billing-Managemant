@@ -1,5 +1,9 @@
 package br.com.caelum.contas.controller;
 
+import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +16,12 @@ import br.com.caelum.contas.modelo.Conta;
 public class ContaController {
 
 	@RequestMapping("/acicionaConta")
-	public String adiciona(Conta Conta) {
+	public String adiciona(@Valid Conta conta, BidingResult result) {
+	
+		If (result.hasErros()){
+			return "formulario";
+		}
+		
 		ContaDAO dao = new ContaDao();
 		dao.adiciona(conta);
 		return "conta-adicionada";

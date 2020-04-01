@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri-"http://springframework.org/tag/form" prefix="form" %>>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +11,7 @@
 	<form actio="adcionaConta" method="post">
 		Descrição:</br>
 		<textarea name="descrição" rows ="5" cols="100"></textarea>
+		<form:errors path="conta.descricao"/>
 		</br>
 		Valor: </br>
 		<input type="text" name="valor" /></br>
