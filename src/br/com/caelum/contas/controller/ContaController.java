@@ -28,11 +28,10 @@ public class ContaController {
 	}
 	
 	@requestMapping("/pagaConta")
-	public String paga(Conta conta) {
+	public void paga(Conta conta. HttpServletResponse response) {
 		ContaDAO dao = new ContaDAO;
 		dao.paga(conta.getId());
-		
-		return "redirect:listaContas";
+		response.setStatus(200);		
 	}
 
 	@RequestMapping(value = "/form")
