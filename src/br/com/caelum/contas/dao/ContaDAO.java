@@ -13,14 +13,17 @@ import br.com.caelum.contas.ConnectionFactory;
 import br.com.caelum.contas.modelo.Conta;
 import br.com.caelum.contas.modelo.TipoDaConta;
 
+
+@Repository
 public class ContaDAO {
 	private Connection connection;
 
-	public ContaDAO() {
+	@Autowired
+	public ContaDAO(DataSource ds) {
 		try {
-			this.connection = new ConnectionFactory().getConnection();
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
+		this.connection=  ds.getConnection(); 
+		}catch (SQLException e) {
+			throw new RuntimeException(e);	
 		}
 	}
 
